@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wi-Fi Emulator Accept Help</title>
+<style>
+  body { font-family: "Segoe UI", sans-serif; line-height: 1.45; max-width: 42rem; margin: 2rem auto; padding: 0 1.25rem; color: #1a1a1a; }
+  h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
+  h2 { font-size: 1.15rem; margin-top: 1.6rem; }
+  code { font-family: Consolas, monospace; }
+  li { margin: 0.25rem 0; }
+</style>
+</head>
+<body>
+<h1>Wi-Fi Emulator Accept</h1>
+<p>This program runs on Windows. When Wi-Fi reconnects, it clicks Allow or Accept on the emulator prompt.</p>
+
+<h2>Status</h2>
+<p>The bold status shows the live state:</p>
+<ul>
+  <li><strong>Wi-Fi: connected to</strong> the network name, or <strong>Wi-Fi: disconnected</strong>.</li>
+  <li><strong>Watching is on</strong> means a reconnect starts a scan. <strong>Watching is paused</strong> means a reconnect does not.</li>
+  <li><strong>Starts at sign-in</strong> means Windows launches the program in the tray. <strong>Starts only when opened</strong> means it runs only after you open it.</li>
+  <li>Extra window titles are listed when the title box is filled in.</li>
+</ul>
+<p>The same sentence is written to the log and shown in the tray tooltip.</p>
+
+<h2>What it clicks</h2>
+<p>It clicks a button named Allow, Allow access, or Accept. It also clicks 允许, 允许访问, 接受, and 同意.</p>
+<p>The window must belong to an emulator, or its title must name one: QEMU, Android Emulator, BlueStacks, LDPlayer, Nox, MEmu, MuMu, or Google Play Games.</p>
+<p>Windows consent, credential, and SmartScreen windows are left as they are. Cancel and Don't allow are left as they are.</p>
+
+<h2>Extra window titles</h2>
+<p>Use the title box for a window the names above do not cover. Separate entries with commas or semicolons. Each entry needs at least 3 characters, and it must appear as its own words in the window title.</p>
+<p>Example: <code>BlueStacks, LDPlayer, Nox</code></p>
+<p>Leave the box empty when the built-in names are enough.</p>
+
+<h2>After Wi-Fi reconnects</h2>
+<p>A reconnect is a change from disconnected to connected. The first 8 seconds after startup are ignored, and another reconnect within 8 seconds does not start a second watch.</p>
+<p>The watch waits 2 seconds, then looks for the prompt for about 40 seconds. It checks about every 4 seconds and stops after 3 clicks. <strong>Scan now</strong> looks once immediately.</p>
+
+<h2>Window and tray</h2>
+<p>Closing the window leaves the program in the tray. Right-click the Wi-Fi icon and choose <strong>Exit</strong> to quit. <strong>Show</strong> opens the window. <strong>Help</strong> or the F1 key opens this file.</p>
+<p><strong>Open log folder</strong> opens the folder that holds <code>log.txt</code> and <code>settings.json</code>.</p>
+
+<h2>Files</h2>
+<ul>
+  <li>Program: <code>%LOCALAPPDATA%\Programs\WifiEmulatorAccept</code></li>
+  <li>Settings and log: <code>%APPDATA%\WifiEmulatorAccept</code></li>
+</ul>
+<p>The program needs the .NET 10 Windows Desktop Runtime. Uninstall it from Windows Settings, under Apps.</p>
+</body>
+</html>

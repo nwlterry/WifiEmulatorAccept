@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyName>WifiEmulatorAccept</AssemblyName>
+    <RootNamespace>WifiEmulatorAccept</RootNamespace>
+    <Version>1.0.0</Version>
+    <Description>Windows-only .NET program that accepts the emulator prompt when Wi-Fi reconnects.</Description>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Help.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UIAutomationClient">
+      <HintPath>$(NetCoreRoot)packs\Microsoft.WindowsDesktop.App.Ref\10.0.11\ref\net10.0\UIAutomationClient.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <HintPath>$(NetCoreRoot)packs\Microsoft.WindowsDesktop.App.Ref\10.0.11\ref\net10.0\UIAutomationTypes.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
