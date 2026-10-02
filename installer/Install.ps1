@@ -4,11 +4,19 @@ $payload = Split-Path -Parent $MyInvocation.MyCommand.Path
 $dest = Join-Path $env:LOCALAPPDATA "Programs\WifiEmulatorAccept"
 $desktop = [Environment]::GetFolderPath("Desktop")
 $programs = [Environment]::GetFolderPath("Programs")
-$shortcutName = "Wi-Fi Emulator Accept.lnk"
+$configPath = Join-Path $payload "WifiEmulatorAccept.runtimeconfig.json"
+$config = Get-Content $configPath -Raw | ConvertFrom-Json
+$framework = @($config.runtimeOptions.frameworks) | Where-Object { $_.name -eq "Microsoft.WindowsDesktop.App" } | Select-Object -First 1
+if (-not $framework) {
+    Write-Host "This package is a pure .NET program for Windows only. WifiEmulatorAccept.runtimeconfig.json does not name the Windows Desktop Runtime."
+    exit 1
+}
+$major = ([version]$framework.version).Major
+$shortcutName = "Wi-Fi Emulator Accept (.NET $major).lnk"
 
 $runtimes = & dotnet --list-runtimes 2>$null
-if (-not ($runtimes -match "Microsoft\.WindowsDesktop\.App 10\.")) {
-    Write-Host "Install the .NET 10 Windows Desktop Runtime, then run this installer again."
+if (-not ($runtimes -match "Microsoft\.WindowsDesktop\.App $major\.")) {
+    Write-Host "This package is a pure .NET program for Windows only. Install the .NET $major Windows Desktop Runtime, then run this installer again."
     exit 1
 }
 
@@ -34,7 +42,7 @@ foreach ($folder in @($desktop, $programs)) {
     $link.TargetPath = $exe
     $link.WorkingDirectory = $dest
     $link.IconLocation = "$icon,0"
-    $link.Description = "Accept the emulator prompt when Wi-Fi reconnects"
+    $link.Description = "Pure .NET program for Windows only. Accepts the emulator prompt when Wi-Fi reconnects. .NET $major Windows Desktop Runtime."
     $link.Save()
 }
 

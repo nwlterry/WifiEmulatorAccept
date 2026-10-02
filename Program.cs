@@ -35,8 +35,8 @@ static class Program
         if (!created)
         {
             MessageBox.Show(
-                "Wi-Fi Emulator Accept is already running. Check the system tray.",
-                "Wi-Fi Emulator Accept",
+                "Wi-Fi Emulator Accept is already running. This is a pure .NET program for Windows only. Check the system tray.",
+                $"Wi-Fi Emulator Accept (.NET {Environment.Version.Major})",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             return 0;

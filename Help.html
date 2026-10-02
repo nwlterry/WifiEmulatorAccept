@@ -13,7 +13,8 @@
 </head>
 <body>
 <h1>Wi-Fi Emulator Accept</h1>
-<p>This program runs on Windows. When Wi-Fi reconnects, it clicks Allow or Accept on the emulator prompt.</p>
+<p>Wi-Fi Emulator Accept is a pure .NET program for Windows only. When Wi-Fi reconnects, it clicks Allow or Accept on the emulator prompt.</p>
+<p>Two Windows packages are published. One uses the .NET 8 Windows Desktop Runtime. The other uses the .NET 10 Windows Desktop Runtime. The window title shows the runtime for this copy, for example <strong>Wi-Fi Emulator Accept (.NET 10)</strong>. The line under the introduction repeats it: pure .NET program for Windows only, and the runtime this copy uses.</p>
 
 <h2>Status</h2>
 <p>The bold status shows the live state:</p>
@@ -22,6 +23,7 @@
   <li><strong>Watching is on</strong> means a reconnect starts a scan. <strong>Watching is paused</strong> means a reconnect does not.</li>
   <li><strong>Starts at sign-in</strong> means Windows launches the program in the tray. <strong>Starts only when opened</strong> means it runs only after you open it.</li>
   <li>Extra window titles are listed when the title box is filled in.</li>
+  <li><strong>Pure .NET program for Windows only</strong> names the Windows Desktop Runtime this copy uses, .NET 8 or .NET 10.</li>
 </ul>
 <p>The same sentence is written to the log and shown in the tray tooltip.</p>
 
@@ -48,6 +50,6 @@
   <li>Program: <code>%LOCALAPPDATA%\Programs\WifiEmulatorAccept</code></li>
   <li>Settings and log: <code>%APPDATA%\WifiEmulatorAccept</code></li>
 </ul>
-<p>The program needs the .NET 10 Windows Desktop Runtime. Uninstall it from Windows Settings, under Apps.</p>
+<p>Install the package that matches the Windows Desktop Runtime on this PC: .NET 8 or .NET 10. Uninstall from Windows Settings, under Apps. The installed name includes the runtime, for example Wi-Fi Emulator Accept (.NET 10).</p>
 </body>
 </html>

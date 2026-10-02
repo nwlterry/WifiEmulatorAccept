@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows</TargetFramework>
+    <TargetFrameworks>net8.0-windows;net10.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -9,8 +9,12 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyName>WifiEmulatorAccept</AssemblyName>
     <RootNamespace>WifiEmulatorAccept</RootNamespace>
-    <Version>1.0.0</Version>
-    <Description>Windows-only .NET program that accepts the emulator prompt when Wi-Fi reconnects.</Description>
+    <Version>1.1.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <AssemblyTitle>Wi-Fi Emulator Accept</AssemblyTitle>
+    <Product>Wi-Fi Emulator Accept</Product>
+    <Copyright>Copyright (c) 2026 nwlterry</Copyright>
+    <Description>Pure .NET program for Windows only. It accepts the emulator prompt when Wi-Fi reconnects. Packages are built for the .NET 8 and .NET 10 Windows Desktop Runtimes.</Description>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
   <ItemGroup>
@@ -19,7 +23,17 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+    <Reference Include="UIAutomationClient">
+      <HintPath>$(NetCoreRoot)packs\Microsoft.WindowsDesktop.App.Ref\8.0.30\ref\net8.0\UIAutomationClient.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <HintPath>$(NetCoreRoot)packs\Microsoft.WindowsDesktop.App.Ref\8.0.30\ref\net8.0\UIAutomationTypes.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0-windows'">
     <Reference Include="UIAutomationClient">
       <HintPath>$(NetCoreRoot)packs\Microsoft.WindowsDesktop.App.Ref\10.0.11\ref\net10.0\UIAutomationClient.dll</HintPath>
       <Private>false</Private>

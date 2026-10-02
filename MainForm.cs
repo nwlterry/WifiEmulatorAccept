@@ -51,7 +51,7 @@ public sealed class MainForm : Form
             }
             _tray.ShowBalloonTip(2500, "Emulator accepted", label, ToolTipIcon.Info);
         });
-        Text = "Wi-Fi Emulator Accept";
+        Text = $"Wi-Fi Emulator Accept (.NET {Environment.Version.Major})";
         ClientSize = new Size(760, 900);
         MinimumSize = new Size(680, 780);
         StartPosition = FormStartPosition.CenterScreen;
@@ -63,7 +63,14 @@ public sealed class MainForm : Form
             AutoSize = true,
             Dock = DockStyle.None,
             Margin = new Padding(0, 0, 0, 6),
-            Text = "When Wi-Fi reconnects, this program clicks Allow or Accept on the emulator prompt (QEMU, Android Emulator, BlueStacks, LDPlayer, Nox, MEmu, MuMu, Google Play Games).",
+            Text = "Pure .NET program for Windows only. When Wi-Fi reconnects, this program clicks Allow or Accept on the emulator prompt (QEMU, Android Emulator, BlueStacks, LDPlayer, Nox, MEmu, MuMu, Google Play Games).",
+        };
+        var runtime = new Label
+        {
+            AutoSize = true,
+            Dock = DockStyle.None,
+            Margin = new Padding(0, 0, 0, 6),
+            Text = AppLog.PlatformLine,
         };
         _enabled.AutoSize = true;
         _enabled.Dock = DockStyle.None;
@@ -109,6 +116,7 @@ public sealed class MainForm : Form
             Padding = new Padding(16, 12, 16, 8),
         };
         header.Controls.Add(intro);
+        header.Controls.Add(runtime);
         header.Controls.Add(_enabled);
         header.Controls.Add(_startup);
         header.Controls.Add(_status);
@@ -137,9 +145,11 @@ public sealed class MainForm : Form
             if (intro.Width == width && intro.MaximumSize.Width == width)
                 return;
             intro.MaximumSize = new Size(width, 0);
+            runtime.MaximumSize = new Size(width, 0);
             _status.MaximumSize = new Size(width, 0);
             titleLabel.MaximumSize = new Size(width, 0);
             intro.Width = width;
+            runtime.Width = width;
             _enabled.Width = width;
             _startup.Width = width;
             _status.Width = width;

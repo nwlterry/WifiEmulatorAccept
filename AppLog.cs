@@ -6,6 +6,9 @@ public static class AppLog
 
     static readonly object Gate = new();
 
+    public static string PlatformLine =>
+        $"Pure .NET program for Windows only. This copy uses the .NET {Environment.Version.Major} Windows Desktop Runtime.";
+
     public static string Describe(AppSettings settings, WifiState wifi)
     {
         var watch = settings.Enabled ? "Watching is on" : "Watching is paused";
@@ -23,7 +26,7 @@ public static class AppLog
         var titles = string.IsNullOrWhiteSpace(settings.ExtraTitleContains)
             ? "No extra window titles."
             : "Extra window titles: " + settings.ExtraTitleContains.Trim() + ".";
-        return $"{wifi.Text}{Environment.NewLine}{watch}. {start}. {titles}";
+        return $"{wifi.Text}{Environment.NewLine}{watch}. {start}. {titles}{Environment.NewLine}{PlatformLine}";
     }
 
     public static bool IsStale(string line) =>

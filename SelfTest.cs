@@ -17,6 +17,9 @@ public static class SelfTest
         Check(failures, "extra title", WindowsPromptMatch.MentionsEmulator("notepad", "Pixel_6 is open", "Pixel_6"));
         Check(failures, "skip uac", !WindowsPromptMatch.MentionsEmulator("consent", "qemu-system wants to make changes", ""));
         Check(failures, "emulator process", WindowsPromptMatch.MentionsEmulator("HD-Player", "", ""));
+        Check(failures, "platform line",
+            AppLog.PlatformLine.Contains("Pure .NET program for Windows only", StringComparison.Ordinal)
+            && AppLog.PlatformLine.Contains($".NET {Environment.Version.Major} Windows Desktop Runtime", StringComparison.Ordinal));
         try
         {
             var root = System.Windows.Automation.AutomationElement.RootElement;
