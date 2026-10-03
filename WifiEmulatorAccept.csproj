@@ -14,7 +14,7 @@
     <AssemblyTitle>Wi-Fi Emulator Accept</AssemblyTitle>
     <Product>Wi-Fi Emulator Accept</Product>
     <Copyright>Copyright (c) 2026 nwlterry</Copyright>
-    <Description>Pure .NET program for Windows only. It accepts the emulator prompt when Wi-Fi reconnects. Packages are built for the .NET 8 and .NET 10 Windows Desktop Runtimes.</Description>
+    <Description>Pure .NET program for Windows only. When Wi-Fi reconnects, it clicks Allow or Accept for QEMU, BlueStacks, LDPlayer, Nox, MEmu, MuMu, or Google Play Games. Packages are built for the .NET 8 and .NET 10 Windows Desktop Runtimes.</Description>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
   <ItemGroup>

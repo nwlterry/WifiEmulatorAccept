@@ -62,8 +62,8 @@ Source: "{#PublishDir}\Help.html"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{autoprograms}\{#MyAppFullName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\App.ico"; Comment: "Pure .NET program for Windows only. Accepts the emulator prompt when Wi-Fi reconnects. .NET {#DotNetMajor} Windows Desktop Runtime."
-Name: "{autodesktop}\{#MyAppFullName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\App.ico"; Comment: "Pure .NET program for Windows only. Accepts the emulator prompt when Wi-Fi reconnects. .NET {#DotNetMajor} Windows Desktop Runtime."; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppFullName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\App.ico"; Comment: "Pure .NET program for Windows only. Clicks Allow or Accept when Wi-Fi reconnects. .NET {#DotNetMajor} Windows Desktop Runtime."
+Name: "{autodesktop}\{#MyAppFullName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\App.ico"; Comment: "Pure .NET program for Windows only. Clicks Allow or Accept when Wi-Fi reconnects. .NET {#DotNetMajor} Windows Desktop Runtime."; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent

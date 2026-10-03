@@ -1,6 +1,6 @@
 # Wi-Fi Emulator Accept
 
-Pure .NET program for Windows only. When Wi-Fi reconnects, it clicks Allow or Accept on the Windows emulator prompt (QEMU, BlueStacks, LDPlayer, Nox, MEmu, MuMu, Google Play Games).
+Pure .NET program for Windows only. When Wi-Fi reconnects, it clicks Allow or Accept for QEMU, BlueStacks, LDPlayer, Nox, MEmu, MuMu, or Google Play Games.
 
 The window title and the line under the introduction name the runtime for that copy. Closing the window leaves the program running in the tray. Exit is on the tray menu. Help and F1 open Help.html.
 

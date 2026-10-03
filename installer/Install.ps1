@@ -42,7 +42,7 @@ foreach ($folder in @($desktop, $programs)) {
     $link.TargetPath = $exe
     $link.WorkingDirectory = $dest
     $link.IconLocation = "$icon,0"
-    $link.Description = "Pure .NET program for Windows only. Accepts the emulator prompt when Wi-Fi reconnects. .NET $major Windows Desktop Runtime."
+    $link.Description = "Pure .NET program for Windows only. Clicks Allow or Accept when Wi-Fi reconnects. .NET $major Windows Desktop Runtime."
     $link.Save()
 }
 

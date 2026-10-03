@@ -47,13 +47,13 @@ public static class WindowsPromptMatch
         if (processName.Length == 0 || IsBlockedProcess(processName))
             return null;
         if (IsEmulatorProcess(processName))
-            return "emulator process " + processName;
+            return "Windows program " + processName;
 
         var haystack = windowText.ToLowerInvariant();
         foreach (var word in EmulatorWords)
         {
             if (ContainsTerm(haystack, word))
-                return "emulator name \"" + word + "\"";
+                return "program name \"" + word + "\"";
         }
 
         foreach (var extra in extraTitles.Split([',', ';'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
@@ -111,7 +111,7 @@ public static class WindowsPromptMatch
 
 public static class WindowsPromptAccepter
 {
-    public const string NoPromptMessage = "No emulator Allow prompt is open.";
+    public const string NoPromptMessage = "No Allow or Accept button is open.";
     public static Task<WindowsPromptResult> TryAcceptAsync(string extraTitles, CancellationToken ct)
     {
         var done = new TaskCompletionSource<WindowsPromptResult>(TaskCreationOptions.RunContinuationsAsynchronously);

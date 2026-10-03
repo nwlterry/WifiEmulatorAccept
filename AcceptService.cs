@@ -72,7 +72,7 @@ public sealed class AcceptService : IDisposable
     {
         var wifi = WifiStatus.Read();
         var where = string.IsNullOrWhiteSpace(wifi.Ssid) ? "Wi-Fi reconnected." : $"Wi-Fi reconnected to {wifi.Ssid}.";
-        AppLog.Write($"{where} Looking for an emulator Allow prompt. {AppLog.Describe(_settings, wifi)}");
+        AppLog.Write($"{where} Looking for Allow or Accept. {AppLog.Describe(_settings, wifi)}");
         await Task.Delay(InitialDelayMs, ct);
         var started = Environment.TickCount64;
         var accepts = 0;
@@ -103,13 +103,13 @@ public sealed class AcceptService : IDisposable
         }
 
         var end = WifiStatus.Read();
-        var accepted = accepts == 1 ? "Accepted 1 prompt." : $"Accepted {accepts} prompts.";
+        var accepted = accepts == 1 ? "Clicked Allow 1 time." : $"Clicked Allow {accepts} times.";
         if (!_settings.Enabled)
             AppLog.Write($"Watch stopped. Watching is paused. {accepted} {AppLog.Describe(_settings, end)}");
         else if (accepts == 0 && sawWindow)
             AppLog.Write($"Watch finished. A matching window was open and no Allow button was clicked. {AppLog.Describe(_settings, end)}");
         else if (accepts == 0)
-            AppLog.Write($"Watch finished. No emulator Allow prompt was open. {AppLog.Describe(_settings, end)}");
+            AppLog.Write($"Watch finished. No Allow or Accept button was open. {AppLog.Describe(_settings, end)}");
         else
             AppLog.Write($"Watch finished. {accepted} {AppLog.Describe(_settings, end)}");
     }

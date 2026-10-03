@@ -3,7 +3,7 @@ namespace WifiEmulatorAccept;
 public sealed class MainForm : Form
 {
     readonly AppSettings _settings;
-    readonly CheckBox _enabled = new() { AutoSize = true, Text = "Watch Wi-Fi and auto-accept emulator prompts" };
+    readonly CheckBox _enabled = new() { AutoSize = true, Text = "Watch Wi-Fi and click Allow or Accept" };
     readonly CheckBox _startup = new() { AutoSize = true, Text = "Start when I sign in to Windows" };
     readonly Label _status = new()
     {
@@ -46,10 +46,10 @@ public sealed class MainForm : Form
         {
             if (InvokeRequired)
             {
-                BeginInvoke(() => _tray.ShowBalloonTip(2500, "Emulator accepted", label, ToolTipIcon.Info));
+                BeginInvoke(() => _tray.ShowBalloonTip(2500, "Allow clicked", label, ToolTipIcon.Info));
                 return;
             }
-            _tray.ShowBalloonTip(2500, "Emulator accepted", label, ToolTipIcon.Info);
+            _tray.ShowBalloonTip(2500, "Allow clicked", label, ToolTipIcon.Info);
         });
         Text = $"Wi-Fi Emulator Accept (.NET {Environment.Version.Major})";
         ClientSize = new Size(760, 900);
@@ -63,7 +63,7 @@ public sealed class MainForm : Form
             AutoSize = true,
             Dock = DockStyle.None,
             Margin = new Padding(0, 0, 0, 6),
-            Text = "Pure .NET program for Windows only. When Wi-Fi reconnects, this program clicks Allow or Accept on the Windows emulator prompt (QEMU, BlueStacks, LDPlayer, Nox, MEmu, MuMu, Google Play Games).",
+            Text = "Pure .NET program for Windows only. When Wi-Fi reconnects, this program clicks Allow or Accept for QEMU, BlueStacks, LDPlayer, Nox, MEmu, MuMu, or Google Play Games.",
         };
         var runtime = new Label
         {
