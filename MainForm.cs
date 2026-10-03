@@ -63,7 +63,7 @@ public sealed class MainForm : Form
             AutoSize = true,
             Dock = DockStyle.None,
             Margin = new Padding(0, 0, 0, 6),
-            Text = "Pure .NET program for Windows only. When Wi-Fi reconnects, this program clicks Allow or Accept on the emulator prompt (QEMU, Android Emulator, BlueStacks, LDPlayer, Nox, MEmu, MuMu, Google Play Games).",
+            Text = "Pure .NET program for Windows only. When Wi-Fi reconnects, this program clicks Allow or Accept on the Windows emulator prompt (QEMU, BlueStacks, LDPlayer, Nox, MEmu, MuMu, Google Play Games).",
         };
         var runtime = new Label
         {
